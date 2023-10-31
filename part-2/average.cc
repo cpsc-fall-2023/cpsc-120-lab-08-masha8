@@ -15,10 +15,15 @@ int main(int argc, char* argv[]) {
               << "\n";
     return -1;
   }
-  
+
   float total{0};
-  for (int i = 1; i < arguments.size(); i++) {
-    total = total + std::stof(arguments[i]);
+  bool first = true;
+  for (const std::string& argument : arguments) {
+    if (first) {
+      first = false;
+    } else {
+      total = total + std::stof(argument);
+    }
   }
 
   float average{0};
